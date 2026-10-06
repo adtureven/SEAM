@@ -1,0 +1,12 @@
+llm:
+  provider: api
+  base_url: "<API_BASE_URL>"
+  api_key_env: "SEAM_API_KEY"
+  model: "provider-model-id"
+  temperature: 0.0
+  max_tokens: 512
+  max_retries: 3
+
+notes:
+  usage: "Copy these llm fields into configs/seam_aaai2026.yaml for API-based runs."
+  privacy: "Do not write API keys into config files. Export them through SEAM_API_KEY."

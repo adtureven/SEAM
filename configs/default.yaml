@@ -1,0 +1,72 @@
+llm:
+  provider: local
+  base_url: "http://127.0.0.1:8000/v1"
+  api_key: "EMPTY"
+  api_key_env: null
+  model: "qwen3-4b"
+  temperature: 0.0
+  max_tokens: 512
+  max_retries: 3
+  extra_body:
+    chat_template_kwargs:
+      enable_thinking: false
+
+env:
+  data_path: "data/alfworld/json_2.1.1"
+  split: "valid_unseen"
+  max_steps: 50
+
+experiment:
+  num_episodes: 134
+  seed: 42
+  log_dir: "outputs"
+
+memory:
+  retrieval_top_k: 3
+  step_retrieval_top_k: 3
+  stability_threshold: 4
+  stable_reliability: 0.7
+  revision_error_threshold: 0.5
+  aggregation_threshold: 2
+  abstraction_min_members: 2
+  abstraction_min_confidence: 0.6
+  enable_llm_reflection: false
+  enable_effect_prediction: true
+
+baseline:
+  reflexion_max_trials: 3
+  retrieval_top_k: 3
+  rag_top_k: 3
+  amem_top_k: 3
+  mem0_top_k: 3
+  rap_rollouts: 3
+  rap_depth: 3
+
+textworld:
+  split: "generated"
+  games_dir: "data/textworld/games"
+  cooking_games_dir: "data/textworld_cooking/games"
+  treasure_games_dir: "data/textworld_treasure/games"
+  home_dir: "data/textworld/.home"
+  max_steps: 50
+
+scienceworld:
+  split: "test"
+  simplification: "easy"
+  variation_idx: 0
+  expand_variations: false
+  task_indices_file: "data/scienceworld_270_indices.json"
+  max_steps: 100
+
+webshop:
+  # Path to a local Princeton-NLP/WebShop checkout, or leave null if it is
+  # already importable in the active Python environment.
+  repo_path: null
+  split: "test"
+  num_episodes: 500
+  observation_mode: "text"
+  num_products: null
+  limit_goals: -1
+  human_goals: false
+  show_attrs: false
+  max_steps: 15
