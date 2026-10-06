@@ -67,6 +67,6 @@ webshop:
   observation_mode: "text"
   num_products: null
   limit_goals: -1
-  human_goals: false
+  human_goals: true
   show_attrs: false
   max_steps: 15

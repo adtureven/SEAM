@@ -30,12 +30,12 @@ class WebShopEnv:
     def __init__(self, webshop_repo: str | None = None,
                  observation_mode: str = "text", num_products: int | None = None,
                  limit_goals: int = -1, max_steps: int = 50,
-                 human_goals: bool = False, show_attrs: bool = False,
+                 human_goals: bool = True, show_attrs: bool = False,
                  split: str = "all"):
         if split not in {"all", "test", "eval", "train"}:
             raise ValueError(f"Unknown WebShop split: {split}")
-        if split != "all" and (num_products is not None or limit_goals != -1 or human_goals):
-            raise ValueError("Official WebShop splits require all products, limit_goals=-1, and human_goals=false.")
+        if split != "all" and (num_products is not None or limit_goals != -1 or not human_goals):
+            raise ValueError("Official WebShop splits require all products, limit_goals=-1, and human_goals=true.")
         if webshop_repo:
             repo = str(Path(webshop_repo).expanduser().resolve())
             if repo not in sys.path:

@@ -8,5 +8,5 @@ llm:
   max_retries: 3
 
 notes:
-  usage: "Copy these llm fields into configs/seam_aaai2026.yaml for API-based runs."
+  usage: "Replace the complete llm section in configs/default.yaml with these fields for API-based runs."
   privacy: "Do not write API keys into config files. Export them through SEAM_API_KEY."
